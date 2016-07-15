@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="start">
+
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+      <!-- Core Libs -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+      <!-- Core Dependencies -->
+      <link rel="stylesheet" href="dist/global.css" />
+
+      <!-- Component -->
+      <link rel="stylesheet" href="dist/component.css" />
+      <script src="dist/component.js"></script>
+
+  </head>
+
+  <body class="dais">
+
+    <header>
+      <ja-header></ja-header>
+    </header>
+    <nav>
+      <div style="
+
+        width: 100%; height:70px;
+        padding: 0 0 .5em 0;  color:white;background: #efefef;
+    border-bottom: 1px solid #fff;">NAV CONTENT HERE<br/>
+      </div>
+    </nav>
+
+    <!-- This Starts The App -->
+    <script>
+      angular.module('start', ['ja-header']);
+    </script>
+
+    <!-- Prebundled Files-->
+
+  </body>
+
+</html>

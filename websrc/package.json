@@ -1,0 +1,15 @@
+{
+  "name": "menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Austin Lovell",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-chug": "^0.5.1",
+    "gulp-foreach": "^0.1.0"
+  }
+}

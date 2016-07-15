@@ -1,0 +1,48 @@
+.menu{
+  border-radius: 10px;
+  margin: 5px 0;
+  border: 1px solid #DFDFDF;
+  overflow: hidden;
+}
+
+.menu .menu-header{
+  padding: 8px 10px;
+  background: linear-gradient(#FDFDFD, #ECECEC, #C5C5C5);
+
+  .menu-label{
+    font-size: 16px;
+    color: rgb(136, 136, 136);
+  }
+  .menu-toggle{
+    float: right;
+    cursor: pointer;
+  }
+}
+
+
+.menu .menu-body{
+  background-color: #E3E3E3;
+
+  ul {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+
+    li {
+      padding: 5px 10px;
+      border-top: 1px solid white;
+
+      .menu-item-title{
+        display: block;
+        font-size: 13px;
+        color: rgb(102, 102, 102);
+      }
+
+      .menu-item-link{
+        color: #4D89BD;
+        text-decoration: none;
+        font-size: 13px;
+      }
+    }
+  }
+}

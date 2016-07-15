@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="start">
+
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+      <!-- Core Libs -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+      <!-- Core Dependencies -->
+      <link rel="stylesheet" href="dist/global.css" />
+
+      <!-- Component -->
+      <link rel="stylesheet" href="dist/component.css" />
+      <script src="dist/component.js"></script>
+
+  </head>
+
+  <body class="dais">
+
+    <!-- Component Goes Here -->
+    <sample></sample>
+
+    <!-- This Starts The App -->
+    <script>
+      angular.module('start', ['sample']);
+    </script>
+
+    <!-- Prebundled Files-->
+
+  </body>
+
+</html>

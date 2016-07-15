@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+      <!-- 3RD PARTY -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+      <!-- Bootstrap CSS -->
+      <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+      <link rel="stylesheet" href="global.css" />
+
+
+      <!-- APP -->
+      <script src="app.js"></script>
+      <script src="components.js"></script>
+
+      <link rel="stylesheet" href="app.css" />
+      <link rel="stylesheet" href="components.css" />
+  </head>
+<body>
+    <header>
+        <ja-header></ja-header>
+    </header>
+    <nav></nav>
+    <div class="row">
+    <div class="span12">
+        <div class="well" ui-view></div>
+      </div>
+    </div>
+    <!-- This Starts The App -->
+  
+</body>
+</html>

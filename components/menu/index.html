@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="start">
+
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+      <!-- 3RD PARTY -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+      <link rel="stylesheet" href="dist/global.css" />
+
+      <!-- APP -->
+      <link rel="stylesheet" href="dist/bundle.css" />
+  </head>
+
+  <body class="dais">
+
+    <side-nav>
+      <activity-menu></activity-menu>
+      <activity-menu></activity-menu>
+      <activity-menu></activity-menu>
+    </side-nav>
+
+
+
+
+    <script>
+      angular.module('start', ['sideNav']);
+      angular.module("templates", []);
+    </script>
+    <script src="dist/app.js"></script>
+    <script src="dist/templates.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="start">
+
+  <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+      <!-- Core Libs -->
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+      <!-- Bootstrap CSS -->
+      <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+
+      <!-- Core Dependencies -->
+      <link rel="stylesheet" href="dist/global.css" />
+
+      <!-- Component -->
+      <link rel="stylesheet" href="dist/component.css" />
+      <script src="dist/component.js"></script>
+
+  </head>
+
+  <body class="ja">
+
+    <header>
+      <ja-header></ja-header>
+    </header>
+    <nav></nav>
+    <div class="row">
+    <div class="span12">
+        <div class="well" ui-view></div>
+      </div>
+    </div>
+    <!-- This Starts The App -->
+    <script>
+      angular.module('start', ['ja-header','nav']);
+    </script>
+
+    <!-- Prebundled Files-->
+
+  </body>
+
+</html>

@@ -1,0 +1,28 @@
+.home{
+    padding-bottom: 20px;
+    margin: 0 auto;
+    margin-top: 300px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ffffff;
+    opacity: 0.9;
+    width: 40%;
+    border-radius: 8px 8px 8px 8px;
+
+
+    .home_header{
+      text-align:center;
+    }
+
+    h3{
+      font-size:24px;
+
+    }
+
+    p{
+      width: 100%;
+      
+      font-size: 18px;
+    }
+}
