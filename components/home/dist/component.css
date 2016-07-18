@@ -1,18 +1,10 @@
-.home {
-  padding-bottom: 20px;
-  margin: 0 auto;
-  margin-top: 300px;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #ffffff;
-  opacity: 0.9;
-  width: 40%;
-  border-radius: 8px 8px 8px 8px; }
-  .home .home_header {
-    text-align: center; }
-  .home h3 {
-    font-size: 24px; }
-  .home p {
-    width: 100%;
-    font-size: 18px; }
+.home_content {
+  background: url(img/wasatch.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif; }
+  .home_content img {
+    margin-top: 20px;
+    margin-bottom: 20px; }

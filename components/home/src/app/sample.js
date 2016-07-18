@@ -6,8 +6,6 @@ angular.module("home")
       transclude: true,
       scope: {},
       controllerAs: 'vm',
-      controller: function(){
-        console.log("SUPER AWESOME SAMPLE") ;
-      }
+      controller: homeController
     }
 })

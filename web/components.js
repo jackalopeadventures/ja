@@ -59,19 +59,35 @@ angular.module("home", []);
 
     function homeController() {
         var vm = this;
+        console.log('home');
     };
 
 angular.module("home")
 .directive('home', function(){
     return {
       rescrict: 'E',
-      template:'<div class=home><h3 class=home_header>Welcome to Jackalope Adventures</h3><p>Whether it\'s a Dawn Patrol hike up to watch the sunrise over the Wasatch before skiing the Greatest Snow on Earth in the winter or a bike shuttle on the legendary Crest trail in the summer we have you covered.<br>Our experienced, friendly, and enthusiastic guides will show you some of the most beautiful landscapes the Wasatch has to offer. We believe earning your turns gives you the most satisfaction and can get you places a chairlift never could.<br>We will also be offering multi day adventures, seminars, corporate retreats and team building, womens and kids clinics, and much more!<br></p><p>If you are ready to make the best out of your getaway contact us today:<br><span style=font-weight:bold>435-659-6609</span><br></p></div>',
+      template:'<div class="col-med-12 col-lg-6 home_content"><img src=/img/not_all_who_wander.jpg style=width:80%;></div><div class="col-med-12 col-lg-6 home_content"><img src=/img/close_up.jpg style=width:80%;></div>',
+      transclude: true,
+      scope: {},
+      controllerAs: 'vm',
+      controller: homeController
+    }
+})
+
+angular.module("ja-footer", []);
+
+angular.module("ja-footer")
+.directive('jaFooter', function(){
+    return {
+      restrict: 'E',
+      template:'<div><ul class=juicer-feed data-feed-id=jackalope data-filter=Instagram></ul></div>',
       transclude: true,
       scope: {},
       controllerAs: 'vm',
       controller: function(){
-        console.log("SUPER AWESOME SAMPLE") ;
+       console.log('here')
       }
+
     }
 })
 
@@ -147,7 +163,7 @@ angular.module("nav")
 .directive('nav', function(){
     return {
       restrict: 'E',
-      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>Home</a></li><li><a ui-sref=about>About</a></li><li><a ui-sref=swap>Gear Swap</a></li></ul></div></div>',
+      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=swap>GEAR SWAP</a></li></ul></div></div>',
       transclude: true,
       scope: {},
       controllerAs: 'vm',
@@ -181,7 +197,7 @@ angular.module('nav').config(
                 })
                 $stateProvider
                    .state('about', {
-                       url: "about",
+                       url: "/about",
                        template: "<about></about>",
                        controller:'aboutController',
                        controllerAs:'vm'

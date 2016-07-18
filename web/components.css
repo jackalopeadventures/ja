@@ -18,24 +18,24 @@ sample {
   font-size: 30px;
   transition: all 0.8s ease; }
 
-.home {
-  padding-bottom: 20px;
-  margin: 0 auto;
-  margin-top: 300px;
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #ffffff;
-  opacity: 0.9;
-  width: 40%;
-  border-radius: 8px 8px 8px 8px; }
-  .home .home_header {
-    text-align: center; }
-  .home h3 {
-    font-size: 24px; }
-  .home p {
-    width: 100%;
-    font-size: 18px; }
+.home_content {
+  background: url(img/wasatch.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif; }
+  .home_content img {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  z-index: 1;
+  width: 100%; }
 
 .header {
   padding: 20px; }
@@ -92,3 +92,28 @@ side-nav {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 10px; }
+
+.navbar {
+  margin-bottom: 20px;
+  overflow: visible; }
+  .navbar .navbar-inner {
+    min-height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #fafafa; }
+    .navbar .navbar-inner .nav {
+      position: relative;
+      left: 0;
+      display: block;
+      list-style: none;
+      float: left;
+      margin: 0 10px 0 0; }
+      .navbar .navbar-inner .nav li {
+        float: left; }
+        .navbar .navbar-inner .nav li a {
+          display: block;
+          float: none;
+          padding: 10px 15px 10px;
+          color: #777;
+          text-decoration: none;
+          text-shadow: 0 1px 0 #fff; }

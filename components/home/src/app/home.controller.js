@@ -2,4 +2,5 @@
 
     function homeController() {
         var vm = this;
+        console.log('home');
     };

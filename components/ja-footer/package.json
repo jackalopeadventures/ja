@@ -1,0 +1,26 @@
+{
+  "name": "header",
+  "version": "1.0.0",
+  "description": "header module",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "corey smaller",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-angular-embed-templates": "^2.2.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-order": "^1.1.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "gulp-webserver": "^0.9.1",
+    "jsonfile": "^2.3.0",
+    "merge-stream": "^1.0.0",
+    "run-sequence": "^1.1.5",
+    "stream-series": "^0.1.1",
+    "angular-mocks":""
+  }
+}

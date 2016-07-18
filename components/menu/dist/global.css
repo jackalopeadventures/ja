@@ -9,5 +9,16 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-family: inherit;
   vertical-align: baseline; }
 
-.dais {
-  font-family: Arial, Verdana, sans-serif; }
+html, body {
+  height: 100%; }
+
+#main {
+  overflow: auto;
+  padding-bottom: 150px;
+  /* this needs to be bigger than footer height*/ }
+
+.footer {
+  position: relative;
+  clear: both;
+  padding-top: 10px;
+  bottom: 10px; }

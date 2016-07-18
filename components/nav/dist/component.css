@@ -8,3 +8,28 @@
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 10px; }
+
+.navbar {
+  margin-bottom: 20px;
+  overflow: visible; }
+  .navbar .navbar-inner {
+    min-height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #fafafa; }
+    .navbar .navbar-inner .nav {
+      position: relative;
+      left: 0;
+      display: block;
+      list-style: none;
+      float: left;
+      margin: 0 10px 0 0; }
+      .navbar .navbar-inner .nav li {
+        float: left; }
+        .navbar .navbar-inner .nav li a {
+          display: block;
+          float: none;
+          padding: 10px 15px 10px;
+          color: #777;
+          text-decoration: none;
+          text-shadow: 0 1px 0 #fff; }

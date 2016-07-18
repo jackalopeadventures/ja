@@ -5,7 +5,7 @@ angular.module('nav').config(
 
              $stateProvider
                 .state('home', {
-                    url: "home",
+                    url: "/",
                     template: "<home></home>",
                     controller:'homeController',
                     controllerAs:'vm'
@@ -21,7 +21,7 @@ angular.module('nav').config(
                 })
                 $stateProvider
                    .state('about', {
-                       url: "about",
+                       url: "/about",
                        template: "<about></about>",
                        controller:'aboutController',
                        controllerAs:'vm'

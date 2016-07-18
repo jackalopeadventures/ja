@@ -21,7 +21,7 @@ angular.module("nav")
 .directive('nav', function(){
     return {
       restrict: 'E',
-      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>Home</a></li><li><a ui-sref=about>About</a></li><li><a ui-sref=swap>Gear Swap</a></li></ul></div></div>',
+      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=swap>GEAR SWAP</a></li></ul></div></div>',
       transclude: true,
       scope: {},
       controllerAs: 'vm',
@@ -55,7 +55,7 @@ angular.module('nav').config(
                 })
                 $stateProvider
                    .state('about', {
-                       url: "about",
+                       url: "/about",
                        template: "<about></about>",
                        controller:'aboutController',
                        controllerAs:'vm'
