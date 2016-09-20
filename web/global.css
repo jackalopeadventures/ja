@@ -12,13 +12,47 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 html, body {
   height: 100%; }
 
+header {
+  background-color: white;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+nav {
+  background-color: white; }
+
 #main {
   overflow: auto;
   padding-bottom: 150px;
-  /* this needs to be bigger than footer height*/ }
+  position: relative;
+  top: 170px; }
+
+.mainview {
+  background: url(img/wasatch.jpg) no-repeat center center fixed;
+  padding-bottom: 300px; }
+  .mainview .content-round-corners {
+    background-color: white;
+    padding: 30px;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 40%; }
+
+.main_img_container img {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.main_content {
+  text-align: center;
+  margin-top: 20px; }
+  .main_content p {
+    background-color: white;
+    padding: 20px; }
 
 .footer {
   position: relative;
   clear: both;
   padding-top: 10px;
-  bottom: 10px; }
+  padding-bottom: 20px;
+  bottom: 0px; }

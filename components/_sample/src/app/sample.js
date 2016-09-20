@@ -1,14 +1,12 @@
 angular.module("sample")
 .directive('sample', function(){
     return {
-      rescrict: 'E',
-      templateUrl: 'sample.html',
-      transclude: true,
-      scope: {},
-      controllerAs: 'ctrl',
-      controller: function(){
-        this.msg = "SUPER AWESOME SAMPLE";
-      },
+      eturn {
+        restrict: 'E',
+        templateUrl: 'contact.html',
+        replace: true,
+        scope: "=",
+
       link: function(scope, element, attr){
         function randomColor(){
           var colors = []

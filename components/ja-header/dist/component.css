@@ -2,3 +2,5 @@
   padding: 20px; }
   .header .logo {
     width: 200px; }
+  .header .header_img {
+    float: right; }

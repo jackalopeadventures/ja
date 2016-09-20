@@ -1,10 +1,16 @@
-.home_content {
-  background: url(img/wasatch.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: 'Open Sans', sans-serif; }
-  .home_content img {
-    margin-top: 20px;
-    margin-bottom: 20px; }
+.main_content .home_blurb {
+  /* unvisited link */
+  /* visited link */
+  /* mouse over link */
+  /* selected link */ }
+  .main_content .home_blurb a {
+    font-size: 14px;
+    text-decoration: none; }
+  .main_content .home_blurb a:link {
+    color: #FF0000; }
+  .main_content .home_blurb a:visited {
+    color: #00FF00; }
+  .main_content .home_blurb a:hover {
+    color: #FF00FF; }
+  .main_content .home_blurb a:active {
+    color: #0000FF; }

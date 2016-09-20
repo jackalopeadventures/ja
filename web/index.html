@@ -31,18 +31,22 @@
 
 <body>
   <!-- header nav  -->
-    <header >
-        <ja-header></ja-header>
-    </header>
-    <nav ></nav>
-  <!-- main site -->
-  <div  id="main" class="container-fluid">
+  <header >
+      <ja-header></ja-header>
+      <nav ></nav>
+  </header>
 
-    <div class="row"  ui-view></div>
-  </div>
-  <footer class="row footer">
-    <ja-footer class="col-lg-12" ></ja-footer>
-  </footer>
+    <div id="main" class="container-fluid">
+
+        <!-- main site -->
+        <div class="row mainview" ui-view></div>
+    </div>
+
+    <footer >
+        <ja-footer class="col-lg-12"></ja-footer>
+    </footer>
+
+
 
     <!-- This Starts The App -->
 

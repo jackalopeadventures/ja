@@ -1,0 +1,32 @@
+
+
+<div class="col-md-6 col-md-offset-3 emailer">
+      <!-- PAGE TITLE -->
+      <div class="page-header">
+         <h1><span style="font-size:20px; margin-left:10px;">you can call us at : 435-659-6609 or Send a quick email</span></h1>
+      </div>
+      <!-- SHOW ERROR/SUCCESS MESSAGES -->
+      <!-- <div id="messages" class="well" ng-show="vm.message"></div> -->
+      <!-- FORM -->
+      <form ng-submit="vm.processForm()">
+         <!-- NAME -->
+         <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorName }">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control"  ng-model="vm.formData.name" required>
+            <span class="help-block" ng-show="vm.errorName"></span>
+         </div>
+         <div id="email-group" class="form-group" ng-class="{ 'has-error' : errorEmail }">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" placeholder="yourname@example.com" ng-model="vm.formData.email" required>
+            <span class="help-block" ng-show="vm.errorEmail"></span>
+         </div>
+         <div id="content-group" class="form-group" ng-class="{ 'has-error' : errorContent }">
+            <label>Message</label>
+            <textarea  rows="5" cols="50" class="form-control" placeholder="What's up?" ng-model="vm.formData.content" required></textarea>
+            <span class="help-block" ng-show="vm.errorContent"></span>
+         </div>
+         <button type="submit" class="btn btn-success btn-lg btn-block">
+         <span class="glyphicon glyphicon-flash"></span> Send
+         </button>
+      </form>
+   </div>
