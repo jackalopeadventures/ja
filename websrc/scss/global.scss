@@ -33,12 +33,16 @@ nav{
     padding-bottom: 150px;
     position: relative;
     top: 170px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .mainview{
   background: url(img/wasatch.jpg) no-repeat center center fixed;
-  padding-bottom:300px;
-
+  padding-bottom:200px;
+  height: 100%;
+  flex:1;
 
   .content-round-corners{
 
@@ -47,6 +51,8 @@ nav{
     margin-top:20px;
     margin-right: 20px;
     width: 40%;
+    border-radius: 5px;
+    flex:1;
 
   }
 
@@ -80,3 +86,9 @@ nav{
     padding-bottom:20px;
     bottom: 0px;
 }
+
+footer{
+      padding-top: 10px;
+}
+
+.clear { clear: both; }

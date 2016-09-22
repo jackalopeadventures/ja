@@ -3,14 +3,12 @@ angular.module("sample", []);
 angular.module("sample")
 .directive('sample', function(){
     return {
-      rescrict: 'E',
-      template:'<span ng-bind=ctrl.msg></span>',
-      transclude: true,
-      scope: {},
-      controllerAs: 'ctrl',
-      controller: function(){
-        this.msg = "SUPER AWESOME SAMPLE";
-      },
+    
+        restrict: 'E',
+        template:'<span ng-bind=ctrl.msg></span>',
+        replace: true,
+        scope: "=",
+
       link: function(scope, element, attr){
         function randomColor(){
           var colors = []

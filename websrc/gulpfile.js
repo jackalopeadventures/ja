@@ -18,6 +18,7 @@ var paths = {
   componentSrc:   '../components/**/src',
   componentsGulp: '../components/**/gulpfile.js',
   index:          './index.html',
+  env:            './env.js',
   web:            '../web',
   sass:           './scss/**/*.scss',
   appjs:          './app/**/*.js',
@@ -83,7 +84,7 @@ gulp.task('bundle-components-img', function() {
 
 // Move index.html
 gulp.task('move-index', function(){
-  return gulp.src(paths.index)
+  return gulp.src([paths.index, paths.env])
   .pipe(gulp.dest(paths.web));
 });
 

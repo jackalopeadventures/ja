@@ -3,14 +3,12 @@ angular.module("sample", []);
 angular.module("sample")
 .directive('sample', function(){
     return {
-      rescrict: 'E',
-      template:'<span ng-bind=ctrl.msg></span>',
-      transclude: true,
-      scope: {},
-      controllerAs: 'ctrl',
-      controller: function(){
-        this.msg = "SUPER AWESOME SAMPLE";
-      },
+    
+        restrict: 'E',
+        template:'<span ng-bind=ctrl.msg></span>',
+        replace: true,
+        scope: "=",
+
       link: function(scope, element, attr){
         function randomColor(){
           var colors = []
@@ -35,13 +33,14 @@ angular.module('about').controller('aboutController', [ '$http',aboutController]
   function aboutController($http) {
       var vm = this;
       console.log('about');
-
-
+      var api = env.apiLink;
+      vm.blogs = null;
       getInfo();
+      
       function getInfo(){
             // Sending request to EmpDetails.php files
-            $http.post('http://jackalopeadventures.com/api/users.php').success(function(data){
-                console.log(data);
+            $http.post(api+'blogs.php').success(function(data){
+              vm.blogs =data;
             });
       }
   };
@@ -53,13 +52,139 @@ angular.module("about")
       restrict: 'E',
       template:'<div class="col-sm-12 col-lg-6 main_img_container"><img src=/img/close_up.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content"><p>Jackalope Adventures is a non-profit company started by Corey Smaller in 2015. Our main focus is getting kids and young adults who don\'t have the means to learn about and enjoy some of the wonderful things the Wasatch range has to offer. Hopefully in the near future we can offer donated equipment to better teach them.</p><p>We believe learning a physical activity like skiing or snowboarding, or how to ride a mountain bike with proper etiquette and technique not only empowers the learner and gives them a sense of accomplishment but also gives them a tool to express themselves and get out into nature.</p></div>',
       transclude: true,
-      scope: {},
-      controllerAs: 'vm',
-      controller: aboutController
-      
+      scope: {}
+
 
     }
 })
+
+angular.module("blog", []);
+
+  angular.module('blog').controller('blogController', [ '$http','Blog' ,'blogs',blogController]);
+
+    function blogController($http,Blog,blogs) {
+        var vm = this;
+        vm.blogs = blogs;
+        // create a blank object to hold our form information
+       // $scope will allow this to pass between controller and view
+       vm.formData = {};
+
+
+      
+
+    };
+
+angular.module("blog")
+.directive('blog', function(){
+    return {
+      restrict: 'E',
+      template:'<div class="col-md-6 col-md-offset-3 blog"><div ng-repeat="(key, value) in vm.blogs"><h1 ng-bind=value.title class=blog-title></h1><small ng-bind="value.date|date:\'MM/dd/yyyy\'"></small><br><div class=blog-body><div ng-bind-html=value.blog></div></div></div></div>',
+      replace: true,
+      scope: "="
+    }
+})
+
+angular.module('blog').factory('Blog', Blog);
+
+function Blog($q, $http) {
+
+    var urlBase = env.apiLink+"blogs.php?dsp=";
+    var contentFactory = getContentActions();
+    return contentFactory;
+
+    function getContentActions() {
+
+        var list = {};
+        list.getLatest = function() {
+
+            return $http.post(urlBase+"latest").then(function(response) {
+              return response.data;
+            });
+
+        };
+
+        // /**
+        //   grab a single group bundle
+        //   id == bundleId
+        // **/
+        //
+        // list.getGroup = function(bundleObj) {
+        //     params.method="GET";
+        //     params.uri = paramRoot+"/"+bundleObj.id ;
+        //     return $http.post(urlBase ,params).then(function(response) {
+        //         params = angular.copy(master);
+        //         return response.data;
+        //     }, function(data) {
+        //         //make stub instead for now
+        //         if (!data.data) {
+        //             return {
+        //                 "groupInfo": [{
+        //                     "name": "TEST GROUP"
+        //                 }],
+        //                 "userList": [{
+        //                     "LoginName": "testy MyTest",
+        //                     "userID": 123
+        //                 }]
+        //             }
+        //         }
+        //     });
+        // }
+        //
+        // list.addUser = function(userId, groupId) {
+        //     //api/groups:/groupId/users/:userId
+        //     params.method="POST";
+        //     params.uri = paramRoot+"/"+groupId + '/users/' + userId;
+        //
+        //     return $http.post(urlBase, params ).then(function(results) {
+        //         params = angular.copy(master);
+        //         return results.data;
+        //     });
+        //
+        // }
+        //
+        // list.removeUser = function(userId, groupId) {
+        //     //api/groups:/groupId/users/:userId
+        //     params.method="DELETE";
+        //     params.uri = paramRoot+"/"+groupId + '/users/' + userId;
+        //
+        //     return $http.post(urlBase, params ).then(function(results) {
+        //         params = angular.copy(master);
+        //         return results.data;
+        //     });
+        //
+        // }
+        //
+        // list.searchUsers = function(search) {
+        //
+        //     params.method="POST";
+        //
+        //     params.uri = env.nodeurl+'users';
+        //     params.parameters = search;
+        //
+        //     return $http.post(urlBase ,params).then(function(results) {
+        //         params = angular.copy(master);
+        //         return results.data;
+        //     }, function(data) {
+        //         console.log(data.message)
+        //         if (!data.data) {
+        //             return{"users":
+        //                [{
+        //                     "LoginName": "testy MySearchTest",
+        //                     "userID": 123
+        //                 }]
+        //                 }
+        //
+        //         }
+        //     });
+        //
+        // }
+
+
+        return list;
+
+    }
+
+}
 
 angular.module("contact", []);
 
@@ -67,6 +192,7 @@ angular.module("contact", []);
 
     function contactController($http) {
         var vm = this;
+        var api =  env.apiLink;
         // create a blank object to hold our form information
        // $scope will allow this to pass between controller and view
        vm.formData = {};
@@ -74,7 +200,7 @@ angular.module("contact", []);
        // process the form
        vm.processForm = function () {
          console.log('contact us')
-         $http.post('http://jackalopeadventures.com/api/sendMail.php',vm.formData).success(function(data){
+         $http.post(api+'sendMail.php',vm.formData).success(function(data){
 
              if(data.success == true){
                alert('Your Email has been sent. Thanks for contacting us.')
@@ -200,7 +326,7 @@ angular.module("nav")
 .directive('nav', function(){
     return {
       restrict: 'E',
-      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=packages>PACKAGES</a></li><li><a ui-sref=contact>CONTACT</a></li></ul></div></div>',
+      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=blog>BLOG</a></li><li><a ui-sref=packages>PACKAGES</a></li><li><a ui-sref=contact>CONTACT</a></li></ul></div></div>',
       transclude: true,
       scope: {},
       controllerAs: 'vm',
@@ -220,16 +346,7 @@ angular.module('nav').config(
                 template: "<home></home>",
                 controller: 'homeController',
                 controllerAs: 'vm'
-                    //
-                    // resolve:{
-                    //     myEnrollments:/
-                    //*@ngInject*/  function(Content) {
-                    //
-                    //         return Content.getEnrollments({
-                    //             id: 51883
-                    //         });
-                    //     }
-                    //}
+
             })
         $stateProvider
             .state('about', {
@@ -237,6 +354,16 @@ angular.module('nav').config(
                 template: "<about></about>",
                 controller: 'aboutController',
                 controllerAs: 'vm'
+                //
+                // resolve:{
+                //     myEnrollments:/
+                //*@ngInject*/  function(Content) {
+                //
+                //         return Content.getEnrollments({
+                //             id: 51883
+                //         });
+                //     }
+                //}
 
             })
         $stateProvider
@@ -253,10 +380,33 @@ angular.module('nav').config(
                 url: "/packages",
                 template: "<packages></packages>",
                 controller: 'packagesController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                //
+                // resolve:{
+                //     myEnrollments:/
+                //*@ngInject*/  function(Content) {
+                //
+                //         return Content.getEnrollments({
+                //             id: 51883
+                //         });
+                //     }
+                //}
 
             })
+            $stateProvider
+                .state('blog', {
+                    url: "/blog",
+                    template: "<blog></blog>",
+                    controller: 'blogController',
+                    controllerAs: 'vm',
+                    resolve:{
+                        blogs:  function(Blog) {
 
+                            return Blog.getLatest();
+                        }
+                    }
+
+                })
         $urlRouterProvider.otherwise("/");
 
 

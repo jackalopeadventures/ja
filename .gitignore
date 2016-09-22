@@ -1,5 +1,6 @@
 node_modules/*
 websrc/node_modules/*
+websrc/env.js
 .DS_Store
 
 # ignore all dist folders

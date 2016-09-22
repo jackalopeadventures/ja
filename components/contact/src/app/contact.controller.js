@@ -2,6 +2,7 @@
 
     function contactController($http) {
         var vm = this;
+        var api =  env.apiLink;
         // create a blank object to hold our form information
        // $scope will allow this to pass between controller and view
        vm.formData = {};
@@ -9,7 +10,7 @@
        // process the form
        vm.processForm = function () {
          console.log('contact us')
-         $http.post('http://jackalopeadventures.com/api/sendMail.php',vm.formData).success(function(data){
+         $http.post(api+'sendMail.php',vm.formData).success(function(data){
 
              if(data.success == true){
                alert('Your Email has been sent. Thanks for contacting us.')

@@ -9,16 +9,7 @@ angular.module('nav').config(
                 template: "<home></home>",
                 controller: 'homeController',
                 controllerAs: 'vm'
-                    //
-                    // resolve:{
-                    //     myEnrollments:/
-                    //*@ngInject*/  function(Content) {
-                    //
-                    //         return Content.getEnrollments({
-                    //             id: 51883
-                    //         });
-                    //     }
-                    //}
+
             })
         $stateProvider
             .state('about', {
@@ -26,6 +17,16 @@ angular.module('nav').config(
                 template: "<about></about>",
                 controller: 'aboutController',
                 controllerAs: 'vm'
+                //
+                // resolve:{
+                //     myEnrollments:/
+                //*@ngInject*/  function(Content) {
+                //
+                //         return Content.getEnrollments({
+                //             id: 51883
+                //         });
+                //     }
+                //}
 
             })
         $stateProvider
@@ -42,10 +43,33 @@ angular.module('nav').config(
                 url: "/packages",
                 template: "<packages></packages>",
                 controller: 'packagesController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                //
+                // resolve:{
+                //     myEnrollments:/
+                //*@ngInject*/  function(Content) {
+                //
+                //         return Content.getEnrollments({
+                //             id: 51883
+                //         });
+                //     }
+                //}
 
             })
+            $stateProvider
+                .state('blog', {
+                    url: "/blog",
+                    template: "<blog></blog>",
+                    controller: 'blogController',
+                    controllerAs: 'vm',
+                    resolve:{
+                        blogs:  function(Blog) {
 
+                            return Blog.getLatest();
+                        }
+                    }
+
+                })
         $urlRouterProvider.otherwise("/");
 
 

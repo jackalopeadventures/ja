@@ -1,9 +1,9 @@
 angular.module("sample")
 .directive('sample', function(){
     return {
-      eturn {
+    
         restrict: 'E',
-        templateUrl: 'contact.html',
+        templateUrl: 'sample.html',
         replace: true,
         scope: "=",
 

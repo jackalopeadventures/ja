@@ -21,7 +21,7 @@ angular.module("nav")
 .directive('nav', function(){
     return {
       restrict: 'E',
-      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=packages>PACKAGES</a></li><li><a ui-sref=contact>CONTACT</a></li></ul></div></div>',
+      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=blog>BLOG</a></li><li><a ui-sref=packages>PACKAGES</a></li><li><a ui-sref=contact>CONTACT</a></li></ul></div></div>',
       transclude: true,
       scope: {},
       controllerAs: 'vm',
@@ -41,16 +41,7 @@ angular.module('nav').config(
                 template: "<home></home>",
                 controller: 'homeController',
                 controllerAs: 'vm'
-                    //
-                    // resolve:{
-                    //     myEnrollments:/
-                    //*@ngInject*/  function(Content) {
-                    //
-                    //         return Content.getEnrollments({
-                    //             id: 51883
-                    //         });
-                    //     }
-                    //}
+
             })
         $stateProvider
             .state('about', {
@@ -58,6 +49,16 @@ angular.module('nav').config(
                 template: "<about></about>",
                 controller: 'aboutController',
                 controllerAs: 'vm'
+                //
+                // resolve:{
+                //     myEnrollments:/
+                //*@ngInject*/  function(Content) {
+                //
+                //         return Content.getEnrollments({
+                //             id: 51883
+                //         });
+                //     }
+                //}
 
             })
         $stateProvider
@@ -74,10 +75,33 @@ angular.module('nav').config(
                 url: "/packages",
                 template: "<packages></packages>",
                 controller: 'packagesController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                //
+                // resolve:{
+                //     myEnrollments:/
+                //*@ngInject*/  function(Content) {
+                //
+                //         return Content.getEnrollments({
+                //             id: 51883
+                //         });
+                //     }
+                //}
 
             })
+            $stateProvider
+                .state('blog', {
+                    url: "/blog",
+                    template: "<blog></blog>",
+                    controller: 'blogController',
+                    controllerAs: 'vm',
+                    resolve:{
+                        blogs:  function(Blog) {
 
+                            return Blog.getLatest();
+                        }
+                    }
+
+                })
         $urlRouterProvider.otherwise("/");
 
 

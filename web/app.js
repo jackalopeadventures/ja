@@ -1,2 +1,2 @@
-angular.module("app", ["home","nav","about",'ja-header','ja-footer','packages','contact']);
+angular.module("app", ["home","nav","about",'ja-header','ja-footer','packages','contact','blog','ngSanitize']);
 angular.module("templates", []);

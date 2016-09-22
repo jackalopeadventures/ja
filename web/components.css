@@ -9,6 +9,18 @@ sample {
   transition: all 0.8s ease; }
 
 
+.blog {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-top: 40px;
+  padding: 30px; }
+  .blog small {
+    font-size: 10px;
+    font-style: italic; }
+  .blog h1 {
+    font-size: 25px;
+    font-weight: bold; }
+
 .emailer {
   background-color: #ffffff;
   border-radius: 5px;
@@ -76,3 +88,7 @@ sample {
           text-decoration: none;
           text-shadow: 0 1px 0 #fff; }
 
+.package h2 {
+  text-decoration: underline;
+  font-size: 20px;
+  color: #042b4e; }
