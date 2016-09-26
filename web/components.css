@@ -44,6 +44,17 @@ sample {
   .main_content .home_blurb a:active {
     color: #0000FF; }
 
+.blog-news {
+  text-align: left;
+  font-size: 11px;
+  color: black;
+  text-decoration: none; }
+  .blog-news h1 {
+    text-align: left;
+    font-size: 20px; }
+  .blog-news .click-more {
+    text-decoration: underline; }
+
 
 .header {
   padding: 20px; }
@@ -91,4 +102,8 @@ sample {
 .package h2 {
   text-decoration: underline;
   font-size: 20px;
-  color: #042b4e; }
+  color: #042b4e;
+  padding-bottom: 5px; }
+
+.package p {
+  text-align: justify; }

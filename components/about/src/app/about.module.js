@@ -4,8 +4,11 @@ angular.module("about")
     return {
       restrict: 'E',
       templateUrl: 'about.html',
-      transclude: true,
-      scope: {}
+      replace: true,
+      scope: "=",
+      transclude: true
+
+
 
 
     }

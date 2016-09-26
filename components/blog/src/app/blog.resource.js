@@ -1,8 +1,11 @@
 angular.module('blog').factory('Blog', Blog);
 
 function Blog($q, $http) {
-
+   if(env.debug == 'true'){
+     var urlBase = env.devApi+"blogs.php?dsp=";
+   }else{
     var urlBase = env.apiLink+"blogs.php?dsp=";
+    }
     var contentFactory = getContentActions();
     return contentFactory;
 

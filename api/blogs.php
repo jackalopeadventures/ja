@@ -1,7 +1,7 @@
 <?php
- //header("Access-Control-Allow-Origin: *");
- error_reporting(E_ALL);
- ini_set('display_errors', '1');
+ header("Access-Control-Allow-Origin: *");
+ // error_reporting(E_ALL);
+ // ini_set('display_errors', '1');
 include_once('../admin/includes/class.Blog.php');
 
  $dsp = '';

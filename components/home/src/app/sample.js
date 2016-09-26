@@ -1,11 +1,9 @@
 angular.module("home")
 .directive('home', function(){
     return {
-      rescrict: 'E',
+      restrict: 'E',
       templateUrl: 'home.html',
       transclude: true,
-      scope: {},
-      controllerAs: 'vm',
-      controller: homeController
+      scope: "="
     }
 })

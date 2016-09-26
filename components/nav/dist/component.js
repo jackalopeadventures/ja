@@ -40,7 +40,13 @@ angular.module('nav').config(
                 url: "/",
                 template: "<home></home>",
                 controller: 'homeController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve:{
+                  blogs:  function(Blog) {
+
+                      return Blog.getLatest();
+                  }
+                }
 
             })
         $stateProvider

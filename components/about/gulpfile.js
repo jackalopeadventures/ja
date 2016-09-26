@@ -27,7 +27,7 @@ gulp.task('default', function() {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
-  gulp.watch(paths.appjs, ['js']);
+  gulp.watch([paths.appjs, paths.templates], ['js']);
   gulp.watch(paths.lib, ['move-lib']);
   gulp.watch(paths.img, ['move-img']);
   gulp.watch(paths.index, ['move-index']);

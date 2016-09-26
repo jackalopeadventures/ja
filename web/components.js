@@ -50,9 +50,12 @@ angular.module("about")
 .directive('about', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-sm-12 col-lg-6 main_img_container"><img src=/img/close_up.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content"><p>Jackalope Adventures is a non-profit company started by Corey Smaller in 2015. Our main focus is getting kids and young adults who don\'t have the means to learn about and enjoy some of the wonderful things the Wasatch range has to offer. Hopefully in the near future we can offer donated equipment to better teach them.</p><p>We believe learning a physical activity like skiing or snowboarding, or how to ride a mountain bike with proper etiquette and technique not only empowers the learner and gives them a sense of accomplishment but also gives them a tool to express themselves and get out into nature.</p></div>',
-      transclude: true,
-      scope: {}
+      template:'<div><div class="col-sm-12 col-lg-6 main_img_container"><img src=/img/close_up.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p>Jackalope Adventures is a non-profit company started by Corey Smaller in 2015. Our main focus is getting kids and young adults who don\'t have the means to learn about and enjoy some of the wonderful things the Wasatch range has to offer. Hopefully in the near future we can offer donated equipment to better teach them.</p><p>We believe learning a physical activity like skiing or snowboarding, or how to ride a mountain bike with proper etiquette and technique not only empowers the learner and gives them a sense of accomplishment but also gives them a tool to express themselves and get out into nature.</p></div></div>',
+      replace: true,
+      scope: "=",
+      transclude: true
+
+
 
 
     }
@@ -78,7 +81,7 @@ angular.module("blog")
 .directive('blog', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-md-6 col-md-offset-3 blog"><div ng-repeat="(key, value) in vm.blogs"><h1 ng-bind=value.title class=blog-title></h1><small ng-bind="value.date|date:\'MM/dd/yyyy\'"></small><br><div class=blog-body><div ng-bind-html=value.blog></div></div></div></div>',
+      template:'<div class="col-md-6 col-md-offset-3 blog content-round-corners"><div ng-repeat="(key, value) in vm.blogs"><h1 ng-bind=value.title class=blog-title></h1><small ng-bind="value.date|date:\'MM/dd/yyyy\'"></small><br><div class=blog-body><div ng-bind-html=value.blog></div></div></div></div>',
       replace: true,
       scope: "="
     }
@@ -87,8 +90,11 @@ angular.module("blog")
 angular.module('blog').factory('Blog', Blog);
 
 function Blog($q, $http) {
-
+   if(env.debug == 'true'){
+     var urlBase = env.devApi+"blogs.php?dsp=";
+   }else{
     var urlBase = env.apiLink+"blogs.php?dsp=";
+    }
     var contentFactory = getContentActions();
     return contentFactory;
 
@@ -246,22 +252,39 @@ angular.module("contact")
 
 angular.module("home", []);
 
-  angular.module('home').controller('homeController', [ homeController]);
+  angular.module('home').controller('homeController', ['blogs', homeController]);
 
-    function homeController() {
+    function homeController(blogs) {
         var vm = this;
-        console.log('home');
+
+       vm.blog = truncate(blogs[0].blog);
+       vm.blogs = blogs;
+
+        function truncate(string){
+           var str = strip(string);
+           if (str.length > 200)
+              return str.substring(0,200)+'<span class="click-more">...(click to see more)</span>';
+           else
+              return str;
+        };
+
+        function strip(html)
+        {
+           var tmp = document.createElement("DIV");
+           tmp.innerHTML = html;
+           return tmp.textContent || tmp.innerText || "";
+        }
+
+
     };
 
 angular.module("home")
 .directive('home', function(){
     return {
-      rescrict: 'E',
-      template:'<div class="col-med-12 col-lg-6 main_img_container"><img src=/img/not_all_who_wander.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content"><p class=home-blurb>Whether it\'s a Dawn Patrol hike up to watch the sunrise over the Wasatch before skiing the Greatest Snow on Earth in the winter or a bike shuttle on the legendary Crest trail in the summer we have you covered.<br>Our experienced, friendly, and enthusiastic guides will show you some of the most beautiful landscapes the Wasatch has to offer. We believe earning your turns gives you the most satisfaction and can get you places a chairlift never could. We will also be offering multi day adventures, seminars, corporate retreats and team building, womens and kids clinics, and much more!<br><a ui-sref=about>Click hereto discover our winter packages.</a></p></div>',
+      restrict: 'E',
+      template:'<div class="col-med-12 col-lg-6 main_img_container"><img src=/img/not_all_who_wander.jpg style=width:80%;></div><a ui-sref=blog><div class="col-sm-12 col-lg-6 main_content content-round-corners blog-news"><h1>{{vm.blogs[0].title}}</h1><div ng-bind-html=vm.blog></div></div></a><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p class=home-blurb>Whether it\'s a Dawn Patrol hike up to watch the sunrise over the Wasatch before skiing the Greatest Snow on Earth in the winter or a bike shuttle on the legendary Crest trail in the summer we have you covered.<br>Our experienced, friendly, and enthusiastic guides will show you some of the most beautiful landscapes the Wasatch has to offer. We believe earning your turns gives you the most satisfaction and can get you places a chairlift never could. We will also be offering multi day adventures, seminars, corporate retreats and team building, womens and kids clinics, and much more!<br><a ui-sref=about>Click hereto discover our winter packages.</a></p></div>',
       transclude: true,
-      scope: {},
-      controllerAs: 'vm',
-      controller: homeController
+      scope: "="
     }
 })
 
@@ -345,7 +368,13 @@ angular.module('nav').config(
                 url: "/",
                 template: "<home></home>",
                 controller: 'homeController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve:{
+                  blogs:  function(Blog) {
+
+                      return Blog.getLatest();
+                  }
+                }
 
             })
         $stateProvider
