@@ -63,6 +63,43 @@ angular.module('nav').config(
 
             })
             $stateProvider
+                .state('login', {
+                    url: "/login",
+                    templateUrl: "../../../../websrc/app/login/login.html",
+                    controller: 'loginController',
+                    controllerAs: 'vm',
+                    //
+                    // resolve:{
+                    //     myEnrollments:/
+                    //*@ngInject*/  function(Content) {
+                    //
+                    //         return Content.getEnrollments({
+                    //             id: 51883
+                    //         });
+                    //     }
+                    //}
+
+                })
+                $stateProvider
+                    .state('register', {
+                        url: "/register",
+                        templateUrl: "../../../../websrc/app/register/register.html",
+                        controller: 'registerController',
+                        controllerAs: 'vm',
+                        //
+                        // resolve:{
+                        //     myEnrollments:/
+                        //*@ngInject*/  function(Content) {
+                        //
+                        //         return Content.getEnrollments({
+                        //             id: 51883
+                        //         });
+                        //     }
+                        //}
+
+                    })
+
+            $stateProvider
                 .state('blog', {
                     url: "/blog",
                     template: "<blog></blog>",

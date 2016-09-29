@@ -34,15 +34,8 @@ angular.module('about').controller('aboutController', [ '$http',aboutController]
       var vm = this;
       console.log('about');
       var api = env.apiLink;
-      vm.blogs = null;
-      getInfo();
-      
-      function getInfo(){
-            // Sending request to EmpDetails.php files
-            $http.post(api+'blogs.php').success(function(data){
-              vm.blogs =data;
-            });
-      }
+    
+
   };
 
 
@@ -71,17 +64,26 @@ angular.module("blog", []);
         // create a blank object to hold our form information
        // $scope will allow this to pass between controller and view
        vm.formData = {};
+       Blog.addView(vm.blogs[0].id);
 
 
-      
+
+
 
     };
+
+    angular.module('blog').filter('addOne', function() {
+      return function(input) {
+        var i = parseInt(input);
+          return i+1;
+          };
+    });
 
 angular.module("blog")
 .directive('blog', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-md-6 col-md-offset-3 blog content-round-corners"><div ng-repeat="(key, value) in vm.blogs"><h1 ng-bind=value.title class=blog-title></h1><small ng-bind="value.date|date:\'MM/dd/yyyy\'"></small><br><div class=blog-body><div ng-bind-html=value.blog></div></div></div></div>',
+      template:'<div class="col-md-6 col-md-offset-3 blog content-round-corners"><div ng-repeat="(key, value) in vm.blogs"><h1 ng-bind=value.title class=blog-title></h1><small ng-bind="value.date|date:\'MM/dd/yyyy\'"></small> <small>Views:{{value.views|addOne}}</small><br><div class=blog-body><div ng-bind-html=value.blog></div></div></div></div>',
       replace: true,
       scope: "="
     }
@@ -104,6 +106,13 @@ function Blog($q, $http) {
         list.getLatest = function() {
 
             return $http.post(urlBase+"latest").then(function(response) {
+              return response.data;
+            });
+
+        };
+        list.addView = function(id) {
+
+            return $http.post(urlBase+"addView&id="+id).then(function(response) {
               return response.data;
             });
 
@@ -282,7 +291,7 @@ angular.module("home")
 .directive('home', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-med-12 col-lg-6 main_img_container"><img src=/img/not_all_who_wander.jpg style=width:80%;></div><a ui-sref=blog><div class="col-sm-12 col-lg-6 main_content content-round-corners blog-news"><h1>{{vm.blogs[0].title}}</h1><div ng-bind-html=vm.blog></div></div></a><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p class=home-blurb>Whether it\'s a Dawn Patrol hike up to watch the sunrise over the Wasatch before skiing the Greatest Snow on Earth in the winter or a bike shuttle on the legendary Crest trail in the summer we have you covered.<br>Our experienced, friendly, and enthusiastic guides will show you some of the most beautiful landscapes the Wasatch has to offer. We believe earning your turns gives you the most satisfaction and can get you places a chairlift never could. We will also be offering multi day adventures, seminars, corporate retreats and team building, womens and kids clinics, and much more!<br><a ui-sref=about>Click hereto discover our winter packages.</a></p></div>',
+      template:'<div class="col-med-6 col-lg-4 main_img_container"><img src=/img/not_all_who_wander.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners blog-news"><a ui-sref=blog><h1>{{vm.blogs[0].title}}</h1><div ng-bind-html=vm.blog></div></a></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p class=home-blurb>Whether it\'s a Dawn Patrol hike up to watch the sunrise over the Wasatch before skiing the Greatest Snow on Earth in the winter or a bike shuttle on the legendary Crest trail in the summer we have you covered.<br>Our experienced, friendly, and enthusiastic guides will show you some of the most beautiful landscapes the Wasatch has to offer. We believe earning your turns gives you the most satisfaction and can get you places a chairlift never could. We will also be offering multi day adventures, seminars, corporate retreats and team building, womens and kids clinics, and much more!<br><a ui-sref=about>Click hereto discover our winter packages.</a></p></div>',
       transclude: true,
       scope: "="
     }
@@ -422,6 +431,43 @@ angular.module('nav').config(
                 //}
 
             })
+            $stateProvider
+                .state('login', {
+                    url: "/login",
+                    template:'<div class="col-md-6 col-md-offset-3"><h2>Login</h2><form name=form ng-submit=vm.login() role=form><div class=form-group ng-class="{ \'has-error\': form.username.$dirty && form.username.$error.required }"><label for=username>Username</label> <input type=text name=username id=username class=form-control ng-model=vm.username required> <span ng-show="form.username.$dirty && form.username.$error.required" class=help-block>Username is required</span></div><div class=form-group ng-class="{ \'has-error\': form.password.$dirty && form.password.$error.required }"><label for=password>Password</label> <input type=password name=password id=password class=form-control ng-model=vm.password required> <span ng-show="form.password.$dirty && form.password.$error.required" class=help-block>Password is required</span></div><div class=form-actions><button type=submit ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="> <a href=#/register class="btn btn-link">Register</a></div></form></div>',
+                    controller: 'loginController',
+                    controllerAs: 'vm',
+                    //
+                    // resolve:{
+                    //     myEnrollments:/
+                    //*@ngInject*/  function(Content) {
+                    //
+                    //         return Content.getEnrollments({
+                    //             id: 51883
+                    //         });
+                    //     }
+                    //}
+
+                })
+                $stateProvider
+                    .state('register', {
+                        url: "/register",
+                        template:'<div class="col-md-6 col-md-offset-3 content-round-corners"><h2>Register</h2><form name=form ng-submit=vm.register() role=form><div class=form-group ng-class="{ \'has-error\': form.firstName.$dirty && form.firstName.$error.required }"><label for=username>First name</label> <input type=text name=firstName id=firstName class=form-control ng-model=vm.user.firstName required> <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class=help-block>First name is required</span></div><div class=form-group ng-class="{ \'has-error\': form.lastName.$dirty && form.lastName.$error.required }"><label for=username>Last name</label> <input type=text name=lastName id=Text1 class=form-control ng-model=vm.user.lastName required> <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class=help-block>Last name is required</span></div><div class=form-group ng-class="{ \'has-error\': form.username.$dirty && form.username.$error.required }"><label for=username>Username</label> <input type=text name=username id=username class=form-control ng-model=vm.user.username required> <span ng-show="form.username.$dirty && form.username.$error.required" class=help-block>Username is required</span></div><div class=form-group ng-class="{ \'has-error\': form.password.$dirty && form.password.$error.required }"><label for=password>Password</label> <input type=password name=password id=password class=form-control ng-model=vm.user.password required> <span ng-show="form.password.$dirty && form.password.$error.required" class=help-block>Password is required</span></div><div class=form-actions><button type=submit ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="> <a href=#/login class="btn btn-link">Cancel</a></div></form></div>',
+                        controller: 'registerController',
+                        controllerAs: 'vm',
+                        //
+                        // resolve:{
+                        //     myEnrollments:/
+                        //*@ngInject*/  function(Content) {
+                        //
+                        //         return Content.getEnrollments({
+                        //             id: 51883
+                        //         });
+                        //     }
+                        //}
+
+                    })
+
             $stateProvider
                 .state('blog', {
                     url: "/blog",

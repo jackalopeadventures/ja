@@ -13,10 +13,21 @@ if(isset($_REQUEST['dsp'])){
 
 
 switch ($dsp) {
- case 'user':
+  case 'user':
 
    break;
-
+  case 'reg':
+  $post = $_POST;
+    $user = new User();
+    $username = $user->getUserByEmail($post['username']);
+    if($username !=false){
+      $pwrd = password_hash($post['password'], PASSWORD_BCRYPT);
+      $user->register($post['username'],$pwrd);
+      echo json_encode(['success':'true']);
+    }else{
+      echo json_encode(['success':'false','error':'User Already in database']);
+    }
+  break;
  default:
    $user = new User();
    $users = $user->getAll();

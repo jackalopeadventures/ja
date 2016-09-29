@@ -11,17 +11,22 @@ if(isset($_REQUEST['dsp'])){
 
 //
 
-
+$blog = new Blog();
 
 switch ($dsp) {
   case 'latest':
-    $blog = new Blog();
+
     $blogs = $blog->getAllLatest();
     echo json_encode($blogs);
   break;
+  case 'addView':
+    $id = $_GET['id'];
+    $blogs = $blog->addView($id);
+  //  echo json_encode($blogs);
+  break;
 
   default:
-    $blog = new Blog();
+
     $blogs = $blog->getAll();
     echo json_encode($blogs);
     break;

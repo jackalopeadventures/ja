@@ -19,6 +19,13 @@ function Blog($q, $http) {
             });
 
         };
+        list.addView = function(id) {
+
+            return $http.post(urlBase+"addView&id="+id).then(function(response) {
+              return response.data;
+            });
+
+        };
 
         // /**
         //   grab a single group bundle
