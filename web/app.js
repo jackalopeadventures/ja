@@ -1,4 +1,4 @@
-angular.module("app", ["home","nav","about",'ja-header','ja-footer','packages','contact','blog','ngSanitize', 'ngCookies'])
+angular.module("app", ["home","nav","about",'ja-header','ja-footer','packages','contact','blog','ngSanitize', 'ngCookies','bootstrapLightbox'])
 .run(run);
 angular.module("templates", []);
 
@@ -13,15 +13,16 @@ run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            console.log(next+"NEXT<CURRENCT"+current);
-            console.log($location.path());
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register','/home','/about','/blog','/contact','/']) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            if (restrictedPage && !loggedIn) {
-                $location.path('/');
-            }
+
+            // var restrictedPage = $.inArray($location.path(), ['/login', '/register','/home','/about','/blog','/contact','/']) === -1;
+            // var loggedIn = $rootScope.globals.currentUser;
+            // if (restrictedPage && !loggedIn) {
+            //     $location.path('/');
+            // }
         });
     }
+
+var env = {'apiLink':'api/','debug':'true','devApi':'http://www.jackalopeadventures.com/api/'};
 
 
 

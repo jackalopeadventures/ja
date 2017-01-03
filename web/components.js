@@ -43,7 +43,7 @@ angular.module("about")
 .directive('about', function(){
     return {
       restrict: 'E',
-      template:'<div><div class="col-sm-12 col-lg-6 main_img_container"><img src=/img/close_up.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p>Jackalope Adventures is a non-profit company started by Corey Smaller in 2015. Our main focus is getting kids and young adults who don\'t have the means to learn about and enjoy some of the wonderful things the Wasatch range has to offer. Hopefully in the near future we can offer donated equipment to better teach them.</p><p>We believe learning a physical activity like skiing or snowboarding, or how to ride a mountain bike with proper etiquette and technique not only empowers the learner and gives them a sense of accomplishment but also gives them a tool to express themselves and get out into nature.</p></div></div>',
+      template:'<div><div class="col-sm-12 col-lg-3 main_img_container"><img src=/img/close_up.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p>Jackalope Adventures is a non-profit company started by Corey Smaller in 2015. Our main focus is getting kids and young adults who don\'t have the means to learn about and enjoy some of the wonderful things the Wasatch range has to offer. Hopefully in the near future we can offer donated equipment to better teach them.</p><p>We believe learning a physical activity like skiing or snowboarding, or how to ride a mountain bike with proper etiquette and technique not only empowers the learner and gives them a sense of accomplishment but also gives them a tool to express themselves and get out into nature.</p></div></div>',
       replace: true,
       scope: "=",
       transclude: true
@@ -56,16 +56,27 @@ angular.module("about")
 
 angular.module("blog", []);
 
-  angular.module('blog').controller('blogController', [ '$http','Blog' ,'blogs',blogController]);
+  angular.module('blog').controller('blogController', [ '$http','Blog' ,'blogs','Lightbox',blogController]);
 
-    function blogController($http,Blog,blogs) {
+    function blogController($http,Blog,blogs,Lightbox) {
         var vm = this;
-        vm.blogs = blogs;
+        vm.blogs = blogs[0];
+        vm.images = blogs['images'];
+        vm.blogClass ="col-md-8  col-md-offset-2 blog content-round-corners";
+        console.log(blogs['images'])
+        if(blogs['images'] ){
+          vm.blogClass = "col-md-8  blog content-round-corners";
+        }
         // create a blank object to hold our form information
        // $scope will allow this to pass between controller and view
        vm.formData = {};
        Blog.addView(vm.blogs[0].id);
 
+
+       vm.openLightboxModal = function (index) {
+         console.log('open modal',index)
+         Lightbox.openModal(vm.images, index);
+       };
 
 
 
@@ -83,7 +94,7 @@ angular.module("blog")
 .directive('blog', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-md-6 col-md-offset-3 blog content-round-corners"><div ng-repeat="(key, value) in vm.blogs"><h1 ng-bind=value.title class=blog-title></h1><small ng-bind="value.date|date:\'MM/dd/yyyy\'"></small> <small>Views:{{value.views|addOne}}</small><br><div class=blog-body><div ng-bind-html=value.blog></div></div></div></div>',
+      template:'<div class=row><div class="col-med-6 col-lg-3 main_img_container"><div ng-repeat="(key,val) in vm.images" ng-if="vm.images.length > 0"><a ng-click=vm.openLightboxModal($index)><img ng-src=img/blog/{{val.img_name}} style=width:100px;></a><div class=img-desc ng-if=vm.images.description>{{val.description}}</div></div><img src=/img/not_all_who_wander.jpg style=width:80%;></div><div ng-class=vm.blogClass><div><h1 ng-bind=vm.blogs.title class=blog-title></h1><small ng-bind=vm.blogs.date|date></small> <small>Views:{{vm.blogs.views|addOne}}</small><br><div class=blog-body><div ng-bind-html=vm.blogs.blog></div></div></div></div></div>',
       replace: true,
       scope: "="
     }
@@ -106,6 +117,21 @@ function Blog($q, $http) {
         list.getLatest = function() {
 
             return $http.post(urlBase+"latest").then(function(response) {
+              return response.data;
+            });
+
+        };
+        list.getBlog= function(id) {
+
+            return $http.post(urlBase+"blog&id="+id).then(function(response) {
+              console.log(response.data);
+              return response.data;
+            });
+
+        };
+        list.getAll = function() {
+
+            return $http.post(urlBase+"all").then(function(response) {
               return response.data;
             });
 
@@ -201,6 +227,28 @@ function Blog($q, $http) {
 
 }
 
+  angular.module('blog').controller('blogsController', [ '$http','Blog' ,'blogs',blogsController]);
+
+    function blogsController($http,Blog,blogs) {
+        var vm = this;
+        vm.blogs = blogs;
+      //  vm.blogs = blogs;
+        // create a blank object to hold our form information
+
+
+
+    };
+
+angular.module("blog")
+.directive('blogs', function(){
+    return {
+      restrict: 'E',
+      template:'<div class="col-md-6 col-md-offset-3 blog content-round-corners"><table><tr ng-repeat="(key, value) in vm.blogs"><td style=padding-right:40px;padding-bottom:10px;font-size:18px;><a ng-bind=value.title ui-sref=blog({id:value.id})></a></td><td><small ng-bind=value.date|date></small></td></tr></table></div>',
+      replace: true,
+      scope: "="
+    }
+})
+
 angular.module("contact", []);
 
   angular.module('contact').controller('contactController', [ '$http',contactController]);
@@ -259,15 +307,26 @@ angular.module("contact")
     }
 })
 
-angular.module("home", []);
+angular.module("home", ['bootstrapLightbox']);
 
-  angular.module('home').controller('homeController', ['blogs', homeController]);
+  angular.module('home').controller('homeController', ['blogs','Blog','Lightbox', homeController]);
 
-    function homeController(blogs) {
+    function homeController(blogs,Blog,Lightbox) {
         var vm = this;
 
-       vm.blog = truncate(blogs[0].blog);
+       vm.blog = blogs[0].blog;
+       vm.images = blogs['images'];
        vm.blogs = blogs;
+        Blog.addView(blogs[0].id);
+       vm.sponsors = [
+          {img:'img/voile_logo_black.png', alt:'Voile Skis and Splitboards'},
+          {img:'img/neversummer.png', alt:'NeverSummer Snowboards'},
+          {img:'img/goride.jpg', alt:'Go-Ride bikes'},
+          // {img:'img/dps-red-logo.png', alt:'DPS Skis'},
+          {img:'img/blackdiamond.jpg', alt:'Black Diamond Equipment'},
+       ]
+
+
 
         function truncate(string){
            var str = strip(string);
@@ -284,14 +343,27 @@ angular.module("home", []);
            return tmp.textContent || tmp.innerText || "";
         }
 
+        vm.openLightboxModal = function (index) {
+          console.log('open modal',index)
+          Lightbox.openModal(vm.images, index);
+        };
+
 
     };
+
+
+    angular.module('home').filter('addOne', function() {
+      return function(input) {
+        var i = parseInt(input);
+          return i+1;
+          };
+    });
 
 angular.module("home")
 .directive('home', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-med-6 col-lg-4 main_img_container"><img src=/img/not_all_who_wander.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners blog-news"><a ui-sref=blog><h1>{{vm.blogs[0].title}}</h1><div ng-bind-html=vm.blog></div></a></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><p class=home-blurb>Whether it\'s a Dawn Patrol hike up to watch the sunrise over the Wasatch before skiing the Greatest Snow on Earth in the winter or a bike shuttle on the legendary Crest trail in the summer we have you covered.<br>Our experienced, friendly, and enthusiastic guides will show you some of the most beautiful landscapes the Wasatch has to offer. We believe earning your turns gives you the most satisfaction and can get you places a chairlift never could. We will also be offering multi day adventures, seminars, corporate retreats and team building, womens and kids clinics, and much more!<br><a ui-sref=about>Click hereto discover our winter packages.</a></p></div>',
+      template:'<div class="col-med-6 col-lg-3 main_img_container"><div ng-repeat="(key,val) in vm.images" ng-if="vm.images.length > 0"><a ng-click=vm.openLightboxModal($index)><img ng-src=img/blog/{{val.img_name}} style=width:100px;></a><div class=img-desc ng-if=vm.images.description>{{val.description}}</div></div><img src=/img/not_all_who_wander.jpg style=width:80%;></div><div class="col-md-6 blog content-round-corners"><h1>{{vm.blogs[0].title}}</h1><small ng-bind="vm.blogs[0].date|date:\'MM/dd/yyyy\'"></small> <small>Views:{{vm.blogs[0].views|addOne}}</small><br><div ng-bind-html=vm.blog></div></div><div class="col-sm-12 col-lg-2 main_content content-round-corners"><h2>Sponsored By</h2><ul class=sponsors><li ng-repeat="(key,val) in vm.sponsors"><img ng-src={{val.img}} alt={{val.alt}} class=sponsors-img></li></ul></div>',
       transclude: true,
       scope: "="
     }
@@ -358,7 +430,7 @@ angular.module("nav")
 .directive('nav', function(){
     return {
       restrict: 'E',
-      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=blog>BLOG</a></li><li><a ui-sref=packages>PACKAGES</a></li><li><a ui-sref=contact>CONTACT</a></li></ul></div></div>',
+      template:'<div class=navbar><div class=navbar-inner><ul class=nav><li><a ui-sref=home>HOME</a></li><li><a ui-sref=about>ABOUT</a></li><li><a ui-sref=blogs>STORIES</a></li><li><a ui-sref=packages>PACKAGES</a></li><li><a ui-sref=contact>CONTACT</a></li></ul></div></div>',
       transclude: true,
       scope: {},
       controllerAs: 'vm',
@@ -378,11 +450,11 @@ angular.module('nav').config(
                 template: "<home></home>",
                 controller: 'homeController',
                 controllerAs: 'vm',
-                resolve:{
-                  blogs:  function(Blog) {
+                resolve: {
+                    blogs: function(Blog) {
 
-                      return Blog.getLatest();
-                  }
+                        return Blog.getLatest();
+                    }
                 }
 
             })
@@ -392,16 +464,7 @@ angular.module('nav').config(
                 template: "<about></about>",
                 controller: 'aboutController',
                 controllerAs: 'vm'
-                //
-                // resolve:{
-                //     myEnrollments:/
-                //*@ngInject*/  function(Content) {
-                //
-                //         return Content.getEnrollments({
-                //             id: 51883
-                //         });
-                //     }
-                //}
+
 
             })
         $stateProvider
@@ -415,73 +478,69 @@ angular.module('nav').config(
 
         $stateProvider
             .state('packages', {
-                url: "/packages",
+                url: "/package",
                 template: "<packages></packages>",
                 controller: 'packagesController',
-                controllerAs: 'vm',
-                //
-                // resolve:{
-                //     myEnrollments:/
-                //*@ngInject*/  function(Content) {
-                //
-                //         return Content.getEnrollments({
-                //             id: 51883
-                //         });
-                //     }
-                //}
+                controllerAs: 'vm'
 
             })
-            $stateProvider
-                .state('login', {
-                    url: "/login",
-                    template:'<div class="col-md-6 col-md-offset-3"><h2>Login</h2><form name=form ng-submit=vm.login() role=form><div class=form-group ng-class="{ \'has-error\': form.username.$dirty && form.username.$error.required }"><label for=username>Username</label> <input type=text name=username id=username class=form-control ng-model=vm.username required> <span ng-show="form.username.$dirty && form.username.$error.required" class=help-block>Username is required</span></div><div class=form-group ng-class="{ \'has-error\': form.password.$dirty && form.password.$error.required }"><label for=password>Password</label> <input type=password name=password id=password class=form-control ng-model=vm.password required> <span ng-show="form.password.$dirty && form.password.$error.required" class=help-block>Password is required</span></div><div class=form-actions><button type=submit ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="> <a href=#/register class="btn btn-link">Register</a></div></form></div>',
-                    controller: 'loginController',
-                    controllerAs: 'vm',
-                    //
-                    // resolve:{
-                    //     myEnrollments:/
-                    //*@ngInject*/  function(Content) {
-                    //
-                    //         return Content.getEnrollments({
-                    //             id: 51883
-                    //         });
-                    //     }
-                    //}
 
-                })
-                $stateProvider
-                    .state('register', {
-                        url: "/register",
-                        template:'<div class="col-md-6 col-md-offset-3 content-round-corners"><h2>Register</h2><form name=form ng-submit=vm.register() role=form><div class=form-group ng-class="{ \'has-error\': form.firstName.$dirty && form.firstName.$error.required }"><label for=username>First name</label> <input type=text name=firstName id=firstName class=form-control ng-model=vm.user.firstName required> <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class=help-block>First name is required</span></div><div class=form-group ng-class="{ \'has-error\': form.lastName.$dirty && form.lastName.$error.required }"><label for=username>Last name</label> <input type=text name=lastName id=Text1 class=form-control ng-model=vm.user.lastName required> <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class=help-block>Last name is required</span></div><div class=form-group ng-class="{ \'has-error\': form.username.$dirty && form.username.$error.required }"><label for=username>Username</label> <input type=text name=username id=username class=form-control ng-model=vm.user.username required> <span ng-show="form.username.$dirty && form.username.$error.required" class=help-block>Username is required</span></div><div class=form-group ng-class="{ \'has-error\': form.password.$dirty && form.password.$error.required }"><label for=password>Password</label> <input type=password name=password id=password class=form-control ng-model=vm.user.password required> <span ng-show="form.password.$dirty && form.password.$error.required" class=help-block>Password is required</span></div><div class=form-actions><button type=submit ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="> <a href=#/login class="btn btn-link">Cancel</a></div></form></div>',
-                        controller: 'registerController',
-                        controllerAs: 'vm',
-                        //
-                        // resolve:{
-                        //     myEnrollments:/
-                        //*@ngInject*/  function(Content) {
-                        //
-                        //         return Content.getEnrollments({
-                        //             id: 51883
-                        //         });
-                        //     }
-                        //}
+        // $stateProvider
+        //     .state('packages', {
+        //         url: "/packages",
+        //         template: "<packages></packages>",
+        //         controller: 'packagesController',
+        //         controllerAs: 'vm'
+        //
+        //     })
+        // $stateProvider
+        //     .state('login', {
+        //         url: "/login",
+        //         template:'<div class="col-md-6 col-md-offset-3 content-round-corners"><h2>Login</h2><form name=form ng-submit=vm.login() role=form><div class=form-group ng-class="{ \'has-error\': form.username.$dirty && form.username.$error.required }"><label for=username>Username</label> <input type=text name=username id=username class=form-control ng-model=vm.username required> <span ng-show="form.username.$dirty && form.username.$error.required" class=help-block>Username is required</span></div><div class=form-group ng-class="{ \'has-error\': form.password.$dirty && form.password.$error.required }"><label for=password>Password</label> <input type=password name=password id=password class=form-control ng-model=vm.password required> <span ng-show="form.password.$dirty && form.password.$error.required" class=help-block>Password is required</span></div><div class=form-actions><button type=submit ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="> <a href=#/register class="btn btn-link">Register</a></div></form></div>',
+        //         controller: 'loginController',
+        //         controllerAs: 'vm'
+        //
+        //
+        //     })
+        // $stateProvider
+        //     .state('register', {
+        //         url: "/register",
+        //         template:'<div class="col-md-6 col-md-offset-3 content-round-corners"><h2>Register</h2><form name=form ng-submit=vm.register() role=form><div class=form-group ng-class="{ \'has-error\': form.username.$dirty && form.username.$error.required }"><label for=username>Email (username)</label> <input type=email name=username id=username class=form-control ng-model=vm.user.username required> <span ng-show="form.username.$dirty && form.username.$error.required" class=help-block>Username is required</span></div><div class=form-group ng-class="{ \'has-error\': form.password.$dirty && form.password.$error.required }"><label for=password>Password</label> <input type=password name=password id=password class=form-control ng-model=vm.user.password required> <span ng-show="form.password.$dirty && form.password.$error.required" class=help-block>Password is required</span></div><div class=form-actions><button type=submit ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button> <img ng-if=vm.dataLoading src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="> <a href=#/login class="btn btn-link">Cancel</a></div></form></div>',
+        //         controller: 'registerController',
+        //         controllerAs: 'vm'
+        //
+        //     })
 
-                    })
+        $stateProvider
+            .state("blog", {
+                url: "/blog/:id",
+                template: "<blog></blog>",
+                controller: 'blogController',
+                controllerAs: 'vm',
+                resolve: {
+                    blogs: ['Blog', '$stateParams', function(Blog, $stateParams) {
 
-            $stateProvider
-                .state('blog', {
-                    url: "/blog",
-                    template: "<blog></blog>",
-                    controller: 'blogController',
-                    controllerAs: 'vm',
-                    resolve:{
-                        blogs:  function(Blog) {
+                        return Blog.getBlog($stateParams.id);
+                    }]
+                }
 
-                            return Blog.getLatest();
-                        }
+            })
+
+        $stateProvider
+            .state('blogs', {
+                url: "/blogs",
+                template: "<blogs></blogs>",
+                controller: 'blogsController',
+                controllerAs: 'vm',
+                resolve: {
+                    blogs: function(Blog) {
+
+                        return Blog.getAll();
                     }
+                }
 
-                })
+            })
+
         $urlRouterProvider.otherwise("/");
 
 
@@ -504,11 +563,11 @@ angular.module("packages")
 .directive('packages', function(){
     return {
       restrict: 'E',
-      template:'<div class="col-sm-12 col-lg-6 main_img_container"><img src=/img/patsfan.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><h1>BACKCOUNTRY PACKAGES</h1><p>Wherever you want to go (weather permitting) we can take you. You like trees? Steeps? Wide Open Bowls? Yeah, we got that.<br>Costs vary on the size of the party and length of time of the tour.</p><div class=package><h2>Side Country Tours</h2><p>Maybe a full hike is a little too strenuous for the party. That\'s ok, we understand.<br>With easy access from all of the resorts in the Wasatch range we can get the goods without a ton of hiking.<br>We can show you the secret spots off Brighton, Snowbird, Alta, Solitude, and PCMR.</p></div><div class=package><h2>Dawn Patrol</h2><p>The early bird catches the worm!<br>There is nothing like watching the sun rise at the top of a peak with the satisfaction of Earning Your Turns.<br>Enjoy the serenity of the early morning Wasatch before dropping into the Greatest Snow on Earth. This experience truly makes your vacation memorable! With our guides you can be done before the lifts start turning!<br></p></div><div class=package><h2>Backcountry Lessons</h2><p>Want to learn the basics of the backcountry? How to use a splitboard or touring skis? Or maybe you just want to get better at skiing powder. Our guides can help!</p></div><div class=package><h2>Private Ski/Snowboarding Lessons</h2><p>Whether you are a first timer or want to polish up on your skills we have you covered. In-bounds half day and full day lessons are available as well at a few different resorts in the Wasatch.</p></div><div class=package><h2>Snowshoe Tours</h2><p>Take a beautiful stroll in the woods. Hike to a waterfall in a cave or to an untouched peak without worrying about sinking up to your waist in the snow. See what the Wasatch has to offer at a slower pace.</p></div></div>',
-      transclude: true,
-      scope: {},
-      controllerAs: 'vm',
-      controller:packagesController
+      template:'<div class="col-sm-12 col-lg-4 main_img_container"><img src=/img/patsfan.jpg style=width:80%;></div><div class="col-sm-12 col-lg-6 main_content content-round-corners"><h1>BACKCOUNTRY PACKAGES</h1><p>Wherever you want to go (weather permitting) we can take you. You like trees? Steeps? Wide Open Bowls? Yeah, we got that.<br>Costs vary on the size of the party and length of time of the tour.</p><div class=package><h2>Side Country Tours</h2><p>Maybe a full hike is a little too strenuous for the party. That\'s ok, we understand.<br>With easy access from all of the resorts in the Wasatch range we can get the goods without a ton of hiking.<br>We can show you the secret spots off Brighton, Snowbird, Alta, Solitude, and PCMR.</p></div><div class=package><h2>Dawn Patrol</h2><p>The early bird catches the worm!<br>There is nothing like watching the sun rise at the top of a peak with the satisfaction of Earning Your Turns.<br>Enjoy the serenity of the early morning Wasatch before dropping into the Greatest Snow on Earth. This experience truly makes your vacation memorable! With our guides you can be done before the lifts start turning!<br></p></div><div class=package><h2>Backcountry Lessons</h2><p>Want to learn the basics of the backcountry? How to use a splitboard or touring skis? Or maybe you just want to get better at skiing powder. Our guides can help!</p></div><div class=package><h2>Private Ski/Snowboarding Lessons</h2><p>Whether you are a first timer or want to polish up on your skills we have you covered. In-bounds half day and full day lessons are available as well at a few different resorts in the Wasatch.</p></div><div class=package><h2>Snowshoe Tours</h2><p>Take a beautiful stroll in the woods. Hike to a waterfall in a cave or to an untouched peak without worrying about sinking up to your waist in the snow. See what the Wasatch has to offer at a slower pace.</p></div></div>',
+    scope: "=",
+
 
     }
+
+
 })

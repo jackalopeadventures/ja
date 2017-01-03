@@ -44,6 +44,12 @@ sample {
   .main_content .home_blurb a:active {
     color: #0000FF; }
 
+.main_content .sponsors {
+  list-style: none; }
+  .main_content .sponsors .sponsors-img {
+    width: 170px;
+    padding-bottom: 40px; }
+
 .blog-news {
   text-align: left;
   font-size: 11px;
