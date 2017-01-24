@@ -1,0 +1,311 @@
+[21-Sep-2016 15:06:01 America/Denver] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home2/chickma1/public_html/jackalope/admin/checklogin.php on line 6
+[21-Sep-2016 15:06:01 America/Denver] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home2/chickma1/public_html/jackalope/admin/checklogin.php on line 6
+[21-Sep-2016 15:26:56 America/Denver] PHP Fatal error:  Call to undefined method Database::rows() in /home2/chickma1/public_html/jackalope/admin/checklogin.php on line 14
+[21-Sep-2016 15:27:28 America/Denver] PHP Fatal error:  Call to undefined method Database::rows() in /home2/chickma1/public_html/jackalope/admin/checklogin.php on line 14
+[21-Sep-2016 15:28:00 America/Denver] PHP Fatal error:  Call to undefined function password_verify() in /home2/chickma1/public_html/jackalope/admin/checklogin.php on line 26
+[22-Sep-2016 14:53:40 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:53:40 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:53:42 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:53:42 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:53:42 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 14:54:33 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:54:33 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:54:33 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 14:56:57 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:56:57 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:56:57 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 14:57:03 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:57:03 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:57:03 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 14:57:20 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:57:20 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:57:20 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 14:58:31 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:58:31 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:58:31 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 14:58:36 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:58:36 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:58:36 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 14:58:41 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:58:41 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 14:58:41 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 15:00:19 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:00:19 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:00:19 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 15:01:00 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:01:00 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:01:00 America/Denver] PHP Notice:  Use of undefined constant blog - assumed 'blog' in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 243
+[22-Sep-2016 15:02:05 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:02:05 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:02:05 America/Denver] PHP Fatal error:  Call to a member function real_escape_string() on null in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 244
+[22-Sep-2016 15:02:31 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:02:31 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:02:31 America/Denver] PHP Fatal error:  Call to a member function real_escape_string() on null in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 244
+[22-Sep-2016 15:02:40 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:02:40 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:02:40 America/Denver] PHP Fatal error:  Call to a member function real_escape_string() on null in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 244
+[22-Sep-2016 15:03:51 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:03:51 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:03:51 America/Denver] PHP Warning:  mysqli_real_escape_string() expects parameter 1 to be mysqli, null given in /home2/chickma1/public_html/jackalope/tester/admin/includes/class.Blog.php on line 244
+[22-Sep-2016 15:03:51 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:04:50 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:04:50 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:04:50 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:07:40 America/Denver] PHP Warning:  include_once(includes/global_functions.php): failed to open stream: No such file or directory in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:07:40 America/Denver] PHP Warning:  include_once(): Failed opening 'includes/global_functions.php' for inclusion (include_path='.:/usr/php/56/usr/lib64:/usr/php/56/usr/share/pear') in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 4
+[22-Sep-2016 15:07:40 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:08:03 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:08:17 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:08:40 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:21:52 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:22:39 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:27:09 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:29:04 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:29:09 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:30:26 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:31:00 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:31:08 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:31:19 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:34:22 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[22-Sep-2016 15:34:25 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:34:59 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:35:53 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:41:18 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:42:22 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:43:37 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:48:02 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:49:32 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[22-Sep-2016 15:51:51 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[23-Sep-2016 10:36:07 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[23-Sep-2016 10:39:40 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[23-Sep-2016 10:40:35 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[18-Oct-2016 09:45:30 America/Denver] PHP Warning:  Invalid argument supplied for foreach() in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/view.php on line 15
+[19-Oct-2016 18:38:52 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[19-Oct-2016 19:20:56 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 08:58:13 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 08:58:28 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 08:58:46 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 09:05:52 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 09:06:49 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 09:08:49 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 09:09:17 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 09:10:39 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 12:00:26 America/Denver] PHP Notice:  Undefined index: username in /home2/chickma1/public_html/jackalope/tester/admin/checklogin.php on line 10
+[20-Oct-2016 12:00:26 America/Denver] PHP Notice:  Undefined index: password in /home2/chickma1/public_html/jackalope/tester/admin/checklogin.php on line 11
+[20-Oct-2016 12:00:47 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 12:08:43 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 12:09:17 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 12:09:29 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 12:15:22 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 12:15:36 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 12:16:28 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 12:22:38 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 12:22:58 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 16:49:20 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 16:51:19 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 16:51:40 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 16:52:41 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 16:52:55 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 16:53:01 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 16:53:37 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 16:55:31 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 16:55:35 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 16:55:40 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 17:02:38 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 17:04:12 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 17:04:23 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 17:04:28 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[20-Oct-2016 17:04:58 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/tester/admin/views/blog/edit.php on line 25
+[20-Oct-2016 17:05:07 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/tester/admin/blog.php on line 200
+[29-Oct-2016 11:58:05 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[29-Oct-2016 12:07:58 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[29-Oct-2016 12:08:22 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[29-Oct-2016 12:08:26 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[29-Oct-2016 12:08:55 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[29-Oct-2016 12:09:47 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[29-Oct-2016 12:10:03 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[29-Oct-2016 12:10:09 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[29-Oct-2016 12:10:45 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[29-Oct-2016 12:11:05 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[29-Oct-2016 12:11:09 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[29-Oct-2016 12:11:14 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 12:47:56 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 12:52:23 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 12:53:56 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 12:54:38 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 12:56:17 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 12:56:29 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 18:24:38 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 18:27:49 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 18:28:35 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 18:28:58 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:50:26 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:50:33 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:51:35 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:51:41 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:51:44 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:52:02 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:52:06 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:52:20 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:52:23 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:55:32 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:55:41 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:55:57 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:56:14 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:56:28 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:56:31 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 19:58:28 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 19:59:42 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 20:00:31 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 20:01:13 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 20:04:17 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 20:04:29 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 20:05:25 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[30-Oct-2016 20:56:10 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[30-Oct-2016 21:13:14 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[31-Oct-2016 10:32:07 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[31-Oct-2016 10:32:21 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 15:40:10 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 15:43:37 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 15:44:07 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 15:44:25 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 15:44:49 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 15:44:56 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 15:45:23 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 15:46:14 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 15:47:59 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 15:53:40 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:03:57 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:04:17 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:06:23 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:07:33 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:08:02 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:09:09 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:10:21 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:10:31 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:10:42 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:18:07 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 16:19:49 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[01-Nov-2016 16:20:23 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[01-Nov-2016 16:20:32 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 200
+[07-Nov-2016 21:35:25 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 116
+[07-Nov-2016 21:37:17 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 116
+[07-Nov-2016 21:37:42 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 116
+[07-Nov-2016 21:37:44 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 116
+[07-Nov-2016 21:39:35 America/Denver] PHP Fatal error:  Cannot redeclare reArrayFiles() (previously declared in /home2/chickma1/public_html/jackalope/admin/blog.php:15) in /home2/chickma1/public_html/jackalope/admin/includes/global_functions.php on line 4
+[07-Nov-2016 21:43:17 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 21:45:03 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 21:53:02 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 21:55:19 America/Denver] PHP Notice:  Undefined index: blog_id in /home2/chickma1/public_html/jackalope/admin/blog.php on line 22
+[07-Nov-2016 21:55:19 America/Denver] PHP Notice:  Undefined index: upload in /home2/chickma1/public_html/jackalope/admin/blog.php on line 24
+[07-Nov-2016 21:55:19 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 206
+[07-Nov-2016 21:56:51 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 21:57:34 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home2/chickma1/public_html/jackalope/admin/blog.php on line 24
+[07-Nov-2016 21:57:36 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home2/chickma1/public_html/jackalope/admin/blog.php on line 24
+[07-Nov-2016 21:58:04 America/Denver] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home2/chickma1/public_html/jackalope/admin/blog.php on line 24
+[07-Nov-2016 21:58:43 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 21:59:19 America/Denver] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /home2/chickma1/public_html/jackalope/admin/includes/global_functions.php on line 8
+[07-Nov-2016 21:59:19 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 206
+[07-Nov-2016 22:01:00 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:02:01 America/Denver] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /home2/chickma1/public_html/jackalope/admin/includes/global_functions.php on line 8
+[07-Nov-2016 22:02:01 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 206
+[07-Nov-2016 22:02:23 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:03:01 America/Denver] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /home2/chickma1/public_html/jackalope/admin/includes/global_functions.php on line 8
+[07-Nov-2016 22:05:22 America/Denver] PHP Fatal error:  Call to a member function getExtension() on string in /home2/chickma1/public_html/jackalope/admin/blog.php on line 32
+[07-Nov-2016 22:09:23 America/Denver] PHP Warning:  getimagesize() expects parameter 1 to be string, array given in /home2/chickma1/public_html/jackalope/admin/blog.php on line 28
+[07-Nov-2016 22:09:23 America/Denver] PHP Notice:  Undefined index: id in /home2/chickma1/public_html/jackalope/admin/blog.php on line 210
+[07-Nov-2016 22:09:23 America/Denver] PHP Warning:  Invalid argument supplied for foreach() in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 6
+[07-Nov-2016 22:10:55 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:11:48 America/Denver] PHP Notice:  Undefined variable: max_width in /home2/chickma1/public_html/jackalope/admin/blog.php on line 60
+[07-Nov-2016 22:11:48 America/Denver] PHP Notice:  Undefined variable: max_height in /home2/chickma1/public_html/jackalope/admin/blog.php on line 61
+[07-Nov-2016 22:11:48 America/Denver] PHP Notice:  Undefined variable: max_width in /home2/chickma1/public_html/jackalope/admin/blog.php on line 63
+[07-Nov-2016 22:11:48 America/Denver] PHP Notice:  Undefined variable: max_height in /home2/chickma1/public_html/jackalope/admin/blog.php on line 66
+[07-Nov-2016 22:11:48 America/Denver] PHP Notice:  Undefined variable: extension in /home2/chickma1/public_html/jackalope/admin/blog.php on line 76
+[07-Nov-2016 22:18:25 America/Denver] PHP Notice:  Undefined variable: max_width in /home2/chickma1/public_html/jackalope/admin/blog.php on line 60
+[07-Nov-2016 22:18:25 America/Denver] PHP Notice:  Undefined variable: max_height in /home2/chickma1/public_html/jackalope/admin/blog.php on line 61
+[07-Nov-2016 22:18:25 America/Denver] PHP Notice:  Undefined variable: max_width in /home2/chickma1/public_html/jackalope/admin/blog.php on line 63
+[07-Nov-2016 22:18:25 America/Denver] PHP Notice:  Undefined variable: max_height in /home2/chickma1/public_html/jackalope/admin/blog.php on line 66
+[07-Nov-2016 22:18:25 America/Denver] PHP Notice:  Undefined variable: extension in /home2/chickma1/public_html/jackalope/admin/blog.php on line 76
+[07-Nov-2016 22:18:53 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:19:23 America/Denver] PHP Notice:  Undefined variable: max_width in /home2/chickma1/public_html/jackalope/admin/blog.php on line 60
+[07-Nov-2016 22:19:23 America/Denver] PHP Notice:  Undefined variable: max_height in /home2/chickma1/public_html/jackalope/admin/blog.php on line 61
+[07-Nov-2016 22:19:23 America/Denver] PHP Notice:  Undefined variable: max_width in /home2/chickma1/public_html/jackalope/admin/blog.php on line 63
+[07-Nov-2016 22:19:23 America/Denver] PHP Notice:  Undefined variable: max_height in /home2/chickma1/public_html/jackalope/admin/blog.php on line 66
+[07-Nov-2016 22:19:23 America/Denver] PHP Notice:  Undefined variable: extension in /home2/chickma1/public_html/jackalope/admin/blog.php on line 76
+[07-Nov-2016 22:20:54 America/Denver] PHP Warning:  image_type_to_extension() expects parameter 1 to be long, string given in /home2/chickma1/public_html/jackalope/admin/blog.php on line 29
+[07-Nov-2016 22:20:54 America/Denver] PHP Notice:  Undefined index: id in /home2/chickma1/public_html/jackalope/admin/blog.php on line 211
+[07-Nov-2016 22:20:55 America/Denver] PHP Warning:  Invalid argument supplied for foreach() in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 6
+[07-Nov-2016 22:26:48 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:27:15 America/Denver] PHP Fatal error:  Call to undefined function getExtension() in /home2/chickma1/public_html/jackalope/admin/blog.php on line 29
+[07-Nov-2016 22:28:47 America/Denver] PHP Notice:  Undefined index: id in /home2/chickma1/public_html/jackalope/admin/blog.php on line 211
+[07-Nov-2016 22:28:47 America/Denver] PHP Warning:  Invalid argument supplied for foreach() in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 6
+[07-Nov-2016 22:31:04 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:32:14 America/Denver] PHP Notice:  Undefined index: id in /home2/chickma1/public_html/jackalope/admin/blog.php on line 212
+[07-Nov-2016 22:32:14 America/Denver] PHP Warning:  Invalid argument supplied for foreach() in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 6
+[07-Nov-2016 22:35:16 America/Denver] PHP Parse error:  syntax error, unexpected ':' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 41
+[07-Nov-2016 22:35:28 America/Denver] PHP Parse error:  syntax error, unexpected ':' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 41
+[07-Nov-2016 22:35:51 America/Denver] PHP Parse error:  syntax error, unexpected ':' in /home2/chickma1/public_html/jackalope/admin/blog.php on line 41
+[07-Nov-2016 22:37:18 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:38:02 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[07-Nov-2016 22:38:04 America/Denver] PHP Notice:  Undefined index: id in /home2/chickma1/public_html/jackalope/admin/blog.php on line 214
+[07-Nov-2016 22:38:04 America/Denver] PHP Warning:  Invalid argument supplied for foreach() in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 6
+[07-Nov-2016 22:38:06 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 09:18:17 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 09:18:51 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 09:19:32 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/jackalope/admin/blog.php on line 118
+[18-Nov-2016 09:19:32 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 211
+[18-Nov-2016 12:29:27 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 13:01:30 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 13:05:55 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 13:11:58 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 13:12:15 America/Denver] PHP Notice:  Undefined variable: image_name in /home2/chickma1/public_html/jackalope/admin/blog.php on line 87
+[18-Nov-2016 13:13:24 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[18-Nov-2016 13:14:03 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[19-Nov-2016 12:18:04 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[19-Nov-2016 12:19:47 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[19-Nov-2016 12:19:59 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[19-Nov-2016 12:20:32 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[19-Nov-2016 12:20:38 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/jackalope/admin/blog.php on line 115
+[19-Nov-2016 12:20:38 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 208
+[19-Nov-2016 12:38:54 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[19-Nov-2016 12:39:06 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/jackalope/admin/blog.php on line 115
+[19-Nov-2016 12:39:06 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 208
+[04-Dec-2016 19:02:27 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[04-Dec-2016 19:12:48 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/jackalope/admin/views/blog/edit.php on line 25
+[04-Dec-2016 19:12:56 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/jackalope/admin/blog.php on line 115
+[04-Dec-2016 19:12:56 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/jackalope/admin/blog.php on line 208
+[14-Dec-2016 18:26:56 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[14-Dec-2016 18:27:34 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[14-Dec-2016 18:28:19 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[14-Dec-2016 18:28:19 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[14-Dec-2016 18:29:35 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[14-Dec-2016 18:31:08 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[14-Dec-2016 18:31:08 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[14-Dec-2016 18:34:38 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[14-Dec-2016 18:37:14 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[14-Dec-2016 18:37:14 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[19-Dec-2016 09:43:55 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[19-Dec-2016 09:44:16 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[19-Dec-2016 09:44:16 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[20-Dec-2016 16:24:14 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[21-Dec-2016 09:00:47 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[21-Dec-2016 09:00:47 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[21-Dec-2016 09:00:50 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[21-Dec-2016 09:01:45 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[21-Dec-2016 09:01:45 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[22-Dec-2016 09:58:18 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[22-Dec-2016 10:01:28 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[22-Dec-2016 10:01:28 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[22-Dec-2016 14:15:05 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[22-Dec-2016 14:23:40 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[22-Dec-2016 14:23:40 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[22-Dec-2016 14:59:45 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[03-Jan-2017 08:55:19 America/Denver] PHP Notice:  Undefined index: user in /home2/chickma1/public_html/admin/security.php on line 4
+[03-Jan-2017 08:55:19 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[03-Jan-2017 09:00:15 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[03-Jan-2017 09:00:32 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[03-Jan-2017 09:00:34 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[03-Jan-2017 09:00:34 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208
+[03-Jan-2017 10:05:43 America/Denver] PHP Notice:  Undefined index: img_desc in /home2/chickma1/public_html/admin/views/blog/edit.php on line 25
+[03-Jan-2017 10:06:13 America/Denver] PHP Notice:  Undefined index: image in /home2/chickma1/public_html/admin/blog.php on line 115
+[03-Jan-2017 10:06:13 America/Denver] PHP Notice:  Undefined index: dsp in /home2/chickma1/public_html/admin/blog.php on line 208

@@ -9,6 +9,11 @@ if(isset($_REQUEST['dsp'])){
     $dsp =  $_REQUEST['dsp'];
 }
 
+if(isset($_REQUEST['id'])){
+    $id =  $_REQUEST['id'];
+}
+
+
 //
 
 $blog = new Blog();
@@ -17,6 +22,16 @@ switch ($dsp) {
   case 'latest':
 
     $blogs = $blog->getAllLatest();
+    echo json_encode($blogs);
+  break;
+  case 'all':
+
+    $blogs = $blog->getAll();
+    echo json_encode($blogs);
+  break;
+  case 'blog':
+
+    $blogs = $blog->getBlog($id);
     echo json_encode($blogs);
   break;
   case 'addView':

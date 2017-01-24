@@ -53,26 +53,26 @@ class Database
 	 function execQuery($query)
 	 {
 
-		 	$this->openLink();
-		 	$this->sqlQuery = $query;
+	 	$this->openLink();
+	 	$this->sqlQuery = $query;
+    
+		$this->result = @mysql_query($query,$this->linkDB) or die (print "<pre>Class Database: Error while executing Query.<br>Query: $query".
+																   "<br>Error: ".mysql_error()."</pre>");
 
-			$this->result = @mysql_query($query,$this->linkDB) or die (print "<pre>Class Database: Error while executing Query.<br>Query: $query".
-																	   "<br>Error: ".mysql_error()."</pre>");
+		$this->affectedRows = mysql_affected_rows($this->linkDB);
 
-			$this->affectedRows = mysql_affected_rows($this->linkDB);
+		if(preg_match('/INSERT/',$query))
+		{
 
-			if(preg_match('/INSERT/',$query))
-			{
+			$this->id = mysql_insert_id();
+		}
 
-				$this->id = mysql_insert_id();
-			}
+		if(preg_match("/SELECT/",$query))
+		{
+			$this->rows = mysql_num_rows($this->result);
+		}
 
-			if(preg_match("/SELECT/",$query))
-			{
-				$this->rows = mysql_num_rows($this->result);
-			}
-
-			$this->closeDB();
+		$this->closeDB();
 	 }
 
 }
